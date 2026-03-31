@@ -8,6 +8,41 @@
 
 This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the Clueboard product line.
 
+## Tacogips Keymap
+
+ErgoDash `tacogips` keymap:
+
+Build:
+
+```sh
+make omkbd/ergodash/rev1:tacogips
+```
+
+Flash:
+
+```sh
+make omkbd/ergodash/rev1:tacogips:avrdude
+```
+
+Ergo68 `tacogips` keymap:
+
+Resources:
+
+- Yushakobo build guide: https://github.com/yushakobo/build-documents/tree/master/Ergo68
+- JanaUnderground ergo68 resources: https://github.com/JanaUnderground/ergo68
+
+Build:
+
+```sh
+make yushakobo/ergo68:tacogips
+```
+
+Flash:
+
+```sh
+make yushakobo/ergo68:tacogips:avrdude
+```
+
 ## Documentation
 
 * [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
