@@ -1,0 +1,34 @@
+min_version = "2026.8.3"
+
+[[hooks.enter]]
+shell = "bash"
+script = '''
+if command -v kinko >/dev/null 2>&1 && kinko hook --help >/dev/null 2>&1; then
+  eval "$(kinko --path "$MISE_PROJECT_ROOT" hook enter bash)"
+fi
+'''
+
+[[hooks.leave]]
+shell = "bash"
+script = '''
+if command -v kinko >/dev/null 2>&1 && kinko hook --help >/dev/null 2>&1; then
+  eval "$(kinko hook leave bash)"
+fi
+'''
+
+[tools]
+python = "3.13"
+uv = "latest"
+"pipx:qmk" = "latest"
+
+[tasks.default]
+description = "List available tasks"
+run = "mise tasks ls"
+
+[tasks.setup]
+description = "Initialize QMK dependencies and submodules"
+run = "qmk setup --home ."
+
+[tasks.compile]
+description = "Compile the tacogips Ergodox keymap in QMK's container toolchain"
+run = "SKIP_FLASHING_SUPPORT=1 util/docker_build.sh omkbd/ergodash/rev1:tacogips-mac"
